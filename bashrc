@@ -15,7 +15,9 @@ function gitp () {
 #my alias
 
 ch() {
-	ex="$1"
-	chmod u+x "$1"
-	printf "the file \"%s\" execute permission to the owner has changed\n" "$ex"
+  for ex in "$@"
+  do
+    chmod u+x "$ex"
+    printf "the file \033[32m\"%s\"\033[0m execute permission to the owner has changed\n" "$ex"
+  done
 }
